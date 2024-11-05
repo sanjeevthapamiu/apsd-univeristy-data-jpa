@@ -27,7 +27,7 @@ public class Course {
     @Column(nullable = false)
     private String title;
 
-    @ManyToMany(cascade = CascadeType.REMOVE)
+    @ManyToMany
     @JoinTable(name = "course_professors",
                 joinColumns = @JoinColumn(name = "course_id"),
                 inverseJoinColumns = @JoinColumn(name = "instructor_id"))
