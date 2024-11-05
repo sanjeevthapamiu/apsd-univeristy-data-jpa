@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -25,14 +27,34 @@ public class Course {
     @Column(nullable = false)
     private String title;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(name = "course_professors",
                 joinColumns = @JoinColumn(name = "course_id"),
                 inverseJoinColumns = @JoinColumn(name = "instructor_id"))
-    private List<Professor> professors;
+    private List<Professor> professors = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "department_id")
     private Department department;
 
+
+
+    public Course(String title) {
+        this.title = title;
+    }
+
+    public void addProfessor(Professor professor) {
+        professors.add(professor);
+    }
+
+    public void addProfessor(Professor ...professors) {
+        Arrays.stream(professors).forEach(this::addProfessor);
+    }
+
+    @Override
+    public String toString() {
+        return "\n\tCourse{" +
+                "title='" + title + '\'' +
+                '}';
+    }
 }

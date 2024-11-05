@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -31,6 +33,29 @@ public class Professor {
     private Department department;
 
     @ManyToMany(mappedBy = "professors")
-    private List<Course> courses;
+    private final List<Course> courses = new ArrayList<>();
 
+
+
+    public Professor(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public void addCourse(Course course) {
+        courses.add(course);
+    }
+
+    public void addCourse(Course ...courses) {
+        Arrays.stream(courses).forEach(this::addCourse);
+    }
+
+    @Override
+    public String toString() {
+        return "\n\tProfessor{" +
+                "lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", department=" + department.getName() +
+                "}";
+    }
 }
