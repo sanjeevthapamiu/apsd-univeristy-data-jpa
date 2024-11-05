@@ -49,3 +49,12 @@ addEntity(Entity entity) {
 }
 ```
 This logic: `entity.setCurrentEntity(this);` is required on `@OneToMany` side, if it is bidirectional. This logic: `entity.setCurrentEntity(this);` does not matter on bidirectional `@ManyToMany`
+
+## Other Notes
+![Other Note 1](https://github.com/sanjeevthapamiu/apsd-univeristy-data-jpa/blob/main/screenshots/Note1.png)
+
+![Other Note 2](https://github.com/sanjeevthapamiu/apsd-univeristy-data-jpa/blob/main/screenshots/Note2.png)
+
+![Other Note 3](https://github.com/sanjeevthapamiu/apsd-univeristy-data-jpa/blob/main/screenshots/Note3.png)
+
+![Other Note 4](https://github.com/sanjeevthapamiu/apsd-univeristy-data-jpa/blob/main/screenshots/Note4.png)
