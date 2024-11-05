@@ -19,7 +19,7 @@ public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id;
+    private Long id;
 
     @NotBlank(message = "Not null - no empty - no blank")
     @Column(nullable = false)

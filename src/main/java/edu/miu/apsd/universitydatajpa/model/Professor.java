@@ -18,7 +18,7 @@ public class Professor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id;
+    private Long id;
 
     @Column(name = "first_name")
     private String firstName;
